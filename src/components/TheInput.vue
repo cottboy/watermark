@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { ConfigKey } from '~/types'
-import { tooltips } from '~/const'
+import { useI18n } from '~/composables/useI18n'
+import ColorPicker from './ColorPicker.vue'
+import { fontOptions } from '~/const'
 
 const { property } = defineProps<{
   property: ConfigKey
@@ -9,16 +11,36 @@ const { property } = defineProps<{
 const { value } = defineModels<{
   value: string | number | boolean
 }>()
+
+const { t } = useI18n()
 </script>
 
 <template>
   <div pb-1 flex justify-between flex-items-center>
     <label :for="property">
-      {{ property }} 
-      <span i-carbon-help inline-block text-sm float-right mt1 ml1 :title="tooltips[property]"></span>
+      {{ t[property] }} 
+      <span i-carbon-help inline-block text-sm float-right mt1 ml1 :title="t.tooltips[property]"></span>
     </label>
     <div v-if="property === 'saveConfig'">
       <TheSwitch :value="value" @update:value="(val: boolean) => $emit('update:value', val)"/>
+    </div>
+    <div v-else-if="property === 'color' && typeof value === 'string'">
+      <ColorPicker v-model:value="value" />
+    </div>
+    <div v-else-if="property === 'fontFamily' && typeof value === 'string'">
+      <select
+        v-model="value"
+        p="x-2 y-1"
+        w-58
+        bg="transparent"
+        border="~ rounded gray-200 dark:gray-700"
+        outline="none active:none"
+        cursor-pointer
+      >
+        <option v-for="font in fontOptions" :key="font.value" :value="font.value">
+          {{ font.label }}
+        </option>
+      </select>
     </div>
     <div v-else-if="property === 'words' && typeof value === 'string'">
       <textarea  
@@ -36,7 +58,7 @@ const { value } = defineModels<{
       <input 
         w-58
         class="range"
-        title="Lower the Value, Better the Compression" 
+        :title="t.compressionTitle" 
         type="range" min="0" max="1" 
         v-model="value" 
         step="0.1"/>

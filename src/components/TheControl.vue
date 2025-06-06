@@ -1,21 +1,24 @@
 <script setup lang="ts">
 import type { Config } from '~/types';
+import { useI18n } from '~/composables/useI18n';
 
 const { config } = defineProps<{
   config: Config
 }>()
+
+const { t } = useI18n()
 </script>
 
 <template>
-  <div float-left w-100 mt="52px" pt-2 border-1 border-rd>
+  <div float-left w-100 mt="0" pt-2 border-1 border-rd>
     <div i-material-symbols-add-photo-alternate-rounded inline-block text-3xl /> 
     <div i-carbon-add inline-block text-3xl /> 
     <div i-material-symbols:picture-as-pdf inline-block text-3xl />
     <p>
-        Watermark
+        {{ t.title }}
     </p>
     <p>
-      <em text-sm op75>Add watermark to image/pdf. </em>
+      <em text-sm op75>{{ t.description }}</em>
     </p>
 
     <div py-2 />
@@ -26,7 +29,7 @@ const { config } = defineProps<{
     
     <div py-4 />
     <p>
-      <em text-sm op75>No sever, so safe</em>
+      <em text-sm op75>{{ t.noServerSafe }}</em>
     </p>
     <TheFooter />
   </div>

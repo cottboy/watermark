@@ -17,7 +17,7 @@ function formatUserConfig(config: Config){
   }
 }
 
-const stringKeys = ['words', 'color', 'rotate', 'startX', 'startY']
+const stringKeys = ['words', 'fontFamily', 'color', 'rotate', 'startX', 'startY']
 function update(key: ConfigKey, val: string | number | boolean){
   if(key === 'saveConfig') 
     config[key] = Boolean(val)

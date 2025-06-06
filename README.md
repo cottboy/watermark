@@ -1,6 +1,16 @@
 # Watermark
 
+> 基于 [Efrice/watermark](https://github.com/Efrice/watermark) 修改  
+> Based on [Efrice/watermark](https://github.com/Efrice/watermark)  
+
 Add watermark to image/pdf, or compression.
+
+## 🆕 新增功能 / Enhancements
+
+- 🌐 **国际化支持** - 中文/英文自动切换 (Internationalization - Auto Chinese/English switching)
+- 🎨 **可视化颜色选择器** - 可视化选择颜色 (Visual selection of colors)
+- 📝 **字体选择** - 支持多种中英文字体 (Font selection with Chinese/English fonts)
+- 📁 **批量处理** - 支持多文件同时处理 (Batch processing for multiple files)
 
 # Features
 
@@ -17,6 +27,7 @@ Add watermark to image/pdf, or compression.
 | ----------- | ------------------------------------------------------------ |
 | saveConfig  | save the config for next use.                                |
 | words       | the words of watermark,  use enter key to wrap lines.        |
+| fontFamily  | the font family for the watermark text.                      |
 | width       | the width of image, pdf is not useful.                                      |
 | height      | the height of image, pdf is not useful.                                     |
 | fontSize    | the font size of the watermark.                              |
@@ -29,3 +40,10 @@ Add watermark to image/pdf, or compression.
 | offsetX     | the offset along the X axis between two watermarks.          |
 | offsetY     | the offset along the Y axis between two watermarks.          |
 | compression | the level for compression.                                   |
+
+## 📄 License
+
+MIT License - 详见 [LICENSE](./LICENSE) 文件
+
+- 原始项目版权归 [Efrice](https://github.com/Efrice) 所有
+- 修改和增强功能版权归 [cottboy](https://github.com/cottboy) 所有

@@ -1,7 +1,14 @@
 import type { Config, imgData } from '~/types'
+import type { Ref } from 'vue'
 import * as pdf from 'pdfjs-dist'
 import pdfWorker from 'pdfjs-dist/build/pdf.worker.js?url'
 import { saveAs } from 'file-saver'
+
+// 声明全局PDFDocument类型
+declare global {
+  const PDFDocument: any
+  const blobStream: any
+}
 
 export function generateCanvas(config: Config, image: HTMLImageElement | HTMLCanvasElement, loadInit: boolean) {
   const { width, height, words, compression } = config
@@ -18,16 +25,16 @@ export function generateCanvas(config: Config, image: HTMLImageElement | HTMLCan
 }
 
 function addWaterMark(config: Config, context: CanvasRenderingContext2D) {
-  const { width, height, words, fontSize, color, rotate, row, col, startX, startY, offsetX, offsetY } = config
+  const { width, height, words, fontSize, color, rotate, row, col, startX, startY, offsetX, offsetY, fontFamily } = config
   context.fillStyle = 'rgba(255, 255, 255, 0.2)'
   context.fillRect(0, 0, width, height)
-  context.rotate(parseInt(rotate) * Math.PI / 180)
+  context.rotate(parseInt(rotate.toString()) * Math.PI / 180)
   context.fillStyle = color
-  context.font = `normal ${fontSize}px Arial`
+  context.font = `normal ${fontSize}px ${fontFamily}`
   Array.from({length: row}).forEach((_, index)=>{
     Array.from({length: col}).forEach((_, idx) => {
       if(words.includes('\n')) {
-        multipleWords(context, index, idx, words, fontSize, startX, startY, offsetX, offsetY)
+        multipleWords(context, index, idx, words, fontSize, startX.toString(), startY.toString(), offsetX, offsetY)
       }else {
         const x = +startX + idx * (words.length * fontSize + offsetX)
         const y = +startY + index * (offsetY + fontSize)

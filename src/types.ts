@@ -1,5 +1,6 @@
 export interface Config {
   words: string
+  fontFamily: string
   width: number
   height: number
   fontSize: number
