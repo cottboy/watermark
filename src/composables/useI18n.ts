@@ -13,6 +13,7 @@ export interface Translations {
   // 按钮文本
   load: string
   loadBatch: string
+  addMoreFiles: string
   download: string
   downloadAll: string
   
@@ -78,6 +79,7 @@ const zhTranslations: Translations = {
   
   load: '加载文件',
   loadBatch: '批量加载',
+  addMoreFiles: '添加更多文件',
   download: '下载',
   downloadAll: '批量下载',
   
@@ -85,7 +87,7 @@ const zhTranslations: Translations = {
   fontFamily: '字体',
   width: '图片宽度',
   height: '图片高度',
-  fontSize: '字体大小',
+  fontSize: '文字大小',
   color: '颜色',
   rotate: '旋转角度',
   row: '行数',
@@ -102,7 +104,7 @@ const zhTranslations: Translations = {
     fontFamily: '水印字体',
     width: '图片宽度，对PDF无效',
     height: '图片高度，对PDF无效',
-    fontSize: '水印字体大小',
+    fontSize: '水印文字大小',
     color: '水印颜色，rgba格式，最后一个参数是透明度',
     rotate: '水印旋转角度',
     row: '水印行数',
@@ -140,6 +142,7 @@ const enTranslations: Translations = {
   
   load: 'Load',
   loadBatch: 'Batch Load',
+  addMoreFiles: 'Add More Files',
   download: 'Download',
   downloadAll: 'Download All',
   
