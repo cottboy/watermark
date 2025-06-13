@@ -1,0 +1,15 @@
+{
+  "name": "watermark-desktop",
+  "private": true,
+  "version": "1.0.0",
+  "description": "水印添加工具",
+  "type": "module",
+  "scripts": {
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.0.0"
+  }
+} 
