@@ -40,10 +40,3 @@ Add watermark to image/pdf, or compression.
 | offsetX     | the offset along the X axis between two watermarks.          |
 | offsetY     | the offset along the Y axis between two watermarks.          |
 | compression | the level for compression.                                   |
-
-## 📄 License
-
-MIT License - 详见 [LICENSE](./LICENSE) 文件
-
-- 原始项目版权归 [Efrice](https://github.com/Efrice) 所有
-- 修改和增强功能版权归 [cottboy](https://github.com/cottboy) 所有
